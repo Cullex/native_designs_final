@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'android-portfolio.dart';
+
 class ServicesScreen extends StatelessWidget {
   const ServicesScreen({Key? key}) : super(key: key);
 
@@ -10,7 +12,7 @@ class ServicesScreen extends StatelessWidget {
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/img_2.png"),
+            image: AssetImage("assets/img_15.png"),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 Colors.orange.withOpacity(0.06), BlendMode.darken),
@@ -38,20 +40,27 @@ class ServicesScreen extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.orange, fontWeight: FontWeight.bold),
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(8),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  AndroidDevPortfolioScreen()));
+                        },
                         child: Container(
-                          height: 130,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/android_logo.png",
-                                ),
-                                fit: BoxFit.fill),
+                          padding: const EdgeInsets.all(8),
+                          child: Container(
+                            height: 130,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    "assets/img_6.png",
+                                  ),
+                                  fit: BoxFit.fill),
+                            ),
                           ),
+                          color: Colors.transparent,
                         ),
-                        color: Colors.transparent,
                       ),
                     ],
                   ),
@@ -70,7 +79,7 @@ class ServicesScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
                                 image: AssetImage(
-                                  "assets/ios.png",
+                                  "assets/img_8.png",
                                 ),
                                 fit: BoxFit.fill),
                           ),
@@ -118,7 +127,7 @@ class ServicesScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
                                 image: AssetImage(
-                                  "assets/systems_dev.jpg",
+                                  "assets/img_10.png",
                                 ),
                                 fit: BoxFit.fill),
                           ),
@@ -166,7 +175,7 @@ class ServicesScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
                                 image: AssetImage(
-                                  "assets/email_logo.png",
+                                  "assets/img_9.png",
                                 ),
                                 fit: BoxFit.fill),
                           ),
