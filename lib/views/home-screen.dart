@@ -24,12 +24,12 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(40),
             ),
             elevation: 15,
-            child: Column(
+            child: ListView(
               children: [
                 Column(
-                  children: [
+                  children: const [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Text(
                         "Welcome To Native Designs Zw",
                         style: TextStyle(
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      "Got An App Idea That You'd To Bring To Life?",
+                      "Got An App Idea That You'd To Bring To Life? Reach Out",
                       style: TextStyle(fontSize: 15, color: Colors.orange),
                     ),
                     SizedBox(height: 10),
@@ -90,11 +90,19 @@ class HomeScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 15, color: Colors.orange),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Text(
-                        "Being a developer is a profession that I love to exercise, because there is nothing more "
-                        "rewarding than contributing to the creation of something that will be useful and will "
-                        "bring a lot of practicality to people's daily lives.",
+                        "I am an enthusiastic,"
+                        " problem solver with absolute passion for development, "
+                        "my skill set is evidence to this. I play other roles well outside than pure development,"
+                        " such roles include documentation, client support, drawing application test plans,"
+                        " install-configure-maintain applications, and so on "
+                        "Being a developer is a profession that I love to exercise,"
+                        " because there is nothing more rewarding than contributing to the creation of something"
+                        " that will be useful and will bring a lot of practicality to people's daily lives. "
+                        "Motivated by this desire to provide a better digital experience to my partners,"
+                        " I always seek to apply the best and most innovative mobile development of today,"
+                        " in a constant search for professional perfection.",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 15, color: Colors.orange),
                       ),

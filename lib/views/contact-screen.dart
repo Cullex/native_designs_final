@@ -1,24 +1,42 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
-
-class ContactScreen extends StatelessWidget {
+class ContactScreen extends StatefulWidget {
   const ContactScreen({Key? key, required this.changePage}) : super(key: key);
   final void Function(int) changePage;
 
   @override
+  State<ContactScreen> createState() => _ContactScreenState();
+}
+
+class _ContactScreenState extends State<ContactScreen> {
+  @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text('$contact Page', style: Theme.of(context).textTheme.headline6),
-          ElevatedButton(
-            onPressed: () => changePage(0),
-            child: const Text('Switch to Home Page'),
-          )
-        ],
+    return Scaffold(
+      body: Container(
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                "assets/img_5.png",
+              ),
+              fit: BoxFit.cover),
+        ),
+        child: SafeArea(
+          child: ListView(
+            children: [
+              Container(
+                height: 690,
+                child: Card(
+                  color: Colors.black38,
+                  elevation: 55,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
