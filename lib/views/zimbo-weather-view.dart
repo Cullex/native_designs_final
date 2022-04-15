@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:native_designs/views/services-screen.dart';
 
-class AfcAppScreenView extends StatelessWidget {
-  const AfcAppScreenView({Key? key}) : super(key: key);
+class ZimboWeatherApp extends StatelessWidget {
+  const ZimboWeatherApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class AfcAppScreenView extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 700,
+            height: 780,
             child: Card(
               color: Colors.black26,
               shape: RoundedRectangleBorder(
@@ -30,16 +30,7 @@ class AfcAppScreenView extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          "Android Portfolio",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.orange),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "AFC Commercial Bank Account Opening App",
+                          "Zimbo Weather App",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.orange),
@@ -53,7 +44,7 @@ class AfcAppScreenView extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35),
                             image: DecorationImage(
-                              image: AssetImage('assets/login.jpg'),
+                              image: AssetImage('assets/afternoon.png'),
                               fit: BoxFit.fill,
                             ),
                             shape: BoxShape.rectangle,
@@ -68,7 +59,7 @@ class AfcAppScreenView extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35),
                             image: DecorationImage(
-                              image: AssetImage('assets/main_screen.jpg'),
+                              image: AssetImage('assets/evening.png'),
                               fit: BoxFit.fill,
                             ),
                             shape: BoxShape.rectangle,
@@ -83,37 +74,7 @@ class AfcAppScreenView extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35),
                             image: DecorationImage(
-                              image: AssetImage('assets/uploads_screen.jpg'),
-                              fit: BoxFit.fill,
-                            ),
-                            shape: BoxShape.rectangle,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 700.0,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(35),
-                            image: DecorationImage(
-                              image: AssetImage('assets/data_entry.jpg'),
-                              fit: BoxFit.fill,
-                            ),
-                            shape: BoxShape.rectangle,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 700.0,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(35),
-                            image: DecorationImage(
-                              image: AssetImage('assets/logout.jpg'),
+                              image: AssetImage('assets/morning.png'),
                               fit: BoxFit.fill,
                             ),
                             shape: BoxShape.rectangle,

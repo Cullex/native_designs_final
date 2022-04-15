@@ -1,23 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:native_designs/dimensions.dart';
 import 'package:native_designs/utilities/show_error_dialog.dart';
 
 import '../utilities/show_success_dialog.dart';
 
-class ContactScreen extends StatefulWidget {
-  const ContactScreen({Key? key, required this.changePage}) : super(key: key);
+class TestViewScreen extends StatefulWidget {
+  const TestViewScreen({Key? key, required this.changePage}) : super(key: key);
   final void Function(int) changePage;
 
   @override
-  State<ContactScreen> createState() => _ContactScreenState();
+  State<TestViewScreen> createState() => _TestViewScreenState();
 }
 
-class _ContactScreenState extends State<ContactScreen> {
+class _TestViewScreenState extends State<TestViewScreen> {
   bool isLoading = false;
-  final bool _validate = false;
-  final TextEditingController _title = TextEditingController();
-  final TextEditingController _subject = TextEditingController();
+  bool _validate = false;
+  TextEditingController _title = new TextEditingController();
+  TextEditingController _subject = new TextEditingController();
   String topic = 'Select Topic';
   var topicItems = [
     'Mobile App',
@@ -46,7 +45,7 @@ class _ContactScreenState extends State<ContactScreen> {
           child: ListView(
             children: [
               Container(
-                height: Dimensions.contactPageContainer,
+                height: 690,
                 child: Card(
                   color: Colors.black38,
                   elevation: 55,
@@ -75,7 +74,7 @@ class _ContactScreenState extends State<ContactScreen> {
                               child: Text(
                                 'Sidney Richards',
                                 style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orange),
                                 textAlign: TextAlign.center,
@@ -86,7 +85,7 @@ class _ContactScreenState extends State<ContactScreen> {
                               child: Text(
                                 '+263 71 376 4301 / +263 774 935 699',
                                 style: TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orange),
                                 textAlign: TextAlign.center,
@@ -97,7 +96,7 @@ class _ContactScreenState extends State<ContactScreen> {
                               child: Text(
                                 'sidyrich@gmail.com',
                                 style: TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orange),
                                 textAlign: TextAlign.center,
@@ -161,7 +160,7 @@ class _ContactScreenState extends State<ContactScreen> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  labelText: 'Enter Description',
+                                  labelText: 'Enter Subject',
                                   errorText:
                                       _validate ? "Field Cant Be Empty" : null,
                                 ),
@@ -172,7 +171,7 @@ class _ContactScreenState extends State<ContactScreen> {
                                   ? CircularProgressIndicator(
                                       color: Colors.white)
                                   : Text(
-                                      'Contact Us',
+                                      'Register',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
@@ -180,9 +179,15 @@ class _ContactScreenState extends State<ContactScreen> {
                                       ),
                                     ),
                               onPressed: () async {
-                                if (_title.text.isEmpty || _subject.text.isEmpty || topic.isEmpty) {
+                                if (_title.text.isEmpty) {
                                   showErrorDialog(
-                                      context, 'There Is An Empty Field.Check Your Fields');
+                                      context, 'Title Field Cannot Be Empty');
+                                } else if (_subject.text.isEmpty) {
+                                  showErrorDialog(
+                                      context, 'Subject Field Cannot Be Empty');
+                                } else if (topic.isEmpty) {
+                                  showErrorDialog(
+                                      context, 'Topic Field Cannot Be Empty');
                                 } else {
                                   setState(() {
                                     isLoading = true;
@@ -194,15 +199,11 @@ class _ContactScreenState extends State<ContactScreen> {
                                   });
                                   Future.delayed(Duration(seconds: 6), () {
                                     setState(() async {
+                                      isLoading = false;
                                       await showSuccessDialog(context,
                                           "Thank You. We'll Be Reaching Out Soon");
                                     });
-                                   setState(() {
-                                     isLoading = false;
-                                     Navigator.pop(context);
-                                   });
                                   });
-
                                 }
                               },
                               style: ElevatedButton.styleFrom(
@@ -213,7 +214,6 @@ class _ContactScreenState extends State<ContactScreen> {
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold)),
                             ),
-                            SizedBox(height: 30,),
                           ],
                         ),
                       ),

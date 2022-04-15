@@ -1,12 +1,32 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:native_designs/views/afc-app-view.dart';
+import 'package:native_designs/views/contact-screen.dart';
+import 'package:native_designs/views/services-screen.dart';
+import 'package:native_designs/views/zimbo-weather-view.dart';
 
-class AndroidDevPortfolioScreen extends StatelessWidget {
+import 'home-screen.dart';
+
+class AndroidDevPortfolioScreen extends StatefulWidget {
   const AndroidDevPortfolioScreen({Key? key}) : super(key: key);
 
   @override
+  State<AndroidDevPortfolioScreen> createState() =>
+      _AndroidDevPortfolioScreenState();
+}
+
+class _AndroidDevPortfolioScreenState extends State<AndroidDevPortfolioScreen> {
+  int currentIndex = 0;
+  final screens = [
+    HomeScreen(),
+    ServicesScreen(),
+    ContactScreen(
+      changePage: (int) {},
+    ),
+  ];
+  @override
   Widget build(BuildContext context) {
+    screens[currentIndex];
     return Container(
       constraints: BoxConstraints.expand(),
       decoration: BoxDecoration(
@@ -16,7 +36,7 @@ class AndroidDevPortfolioScreen extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 780,
+            height: 700,
             child: Card(
               color: Colors.black26,
               shape: RoundedRectangleBorder(
@@ -75,25 +95,31 @@ class AndroidDevPortfolioScreen extends StatelessWidget {
                               color: Colors.orange),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 700.0,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(35),
-                            image: DecorationImage(
-                              image: AssetImage('assets/img_1.png'),
-                              fit: BoxFit.fill,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ZimboWeatherApp()));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 600.0,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(35),
+                              image: DecorationImage(
+                                image: AssetImage('assets/morning.png'),
+                                fit: BoxFit.fill,
+                              ),
+                              shape: BoxShape.rectangle,
                             ),
-                            shape: BoxShape.rectangle,
                           ),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          "Bus Booking App",
+                          "Food Recipe App",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.orange),
@@ -102,7 +128,7 @@ class AndroidDevPortfolioScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          height: 700.0,
+                          height: 600.0,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35),

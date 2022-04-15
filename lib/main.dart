@@ -1,23 +1,33 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:native_designs/views/contact-screen.dart';
 import 'package:native_designs/views/home-screen.dart';
+import 'package:native_designs/views/portfolio-screen.dart';
 import 'package:native_designs/views/services-screen.dart';
+import 'package:get/get.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
 const String home = "Home";
 const String services = "Services";
 const String contact = "Contact";
-const String title = "Demo";
+const String portfolio = "Portfolio";
+const String title = "Native Designs";
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: title,
       home: MyHomePage(title: title),
@@ -38,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
   late Widget _home;
   late Widget _services;
   late Widget _contact;
+  late Widget _portfolio;
   late int _currentIndex;
   late Widget _currentPage;
 
@@ -47,7 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
     _home = const HomeScreen();
     _services = const ServicesScreen();
     _contact = ContactScreen(changePage: _changeTab);
-    _pages = [_home, _services, _contact];
+    _portfolio = const PortfolioScreen();
+    _pages = [_home, _services, _contact, _portfolio];
     _currentIndex = 0;
     _currentPage = _home;
   }
@@ -71,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: _currentPage,
       ),
       bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.orange,
           backgroundColor: Colors.black26,
           onTap: (index) {
@@ -92,6 +105,11 @@ class _MyHomePageState extends State<MyHomePage> {
               label: contact,
               icon: Icon(Icons.person),
             ),
+            BottomNavigationBarItem(
+              label: portfolio,
+              icon: Icon(Icons.app_registration),
+            ),
+
           ]),
     );
   }
